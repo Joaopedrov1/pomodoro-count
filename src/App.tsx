@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Menu } from "./componentes/Menu";
+import { Container } from "./componentes/Container";
+import { Logo } from "./componentes/Logo";
+import "./styles/global.css";
+import "./styles/tema.css";
+import { Clock } from "./componentes/Clock";
+import { Input } from "./componentes/Input";
+import { Ciclos } from "./componentes/Ciclos";
+import { BotaoDefault } from "./componentes/BotaoDefault";
+import { PlayCircle } from "lucide-react";
+import { Footer } from "./componentes/Footer";
 
-function App() {
-  const [count, setCount] = useState(0)
+export function App() {
+    return (
+        <>
+            <Container>
+                <Logo />
+            </Container>
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+            <Container>
+                <Menu />
+            </Container>
+
+            <Container>
+                <Clock />
+            </Container>
+
+            <Container>
+                <form className="form" action="">
+                    <div className="formRow">
+                        <Input id="meuInput" labelText="task" type="text" placeholder="Digite Algo" />
+                    </div>
+
+                    <div className="formRow">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+
+                    <div className="formRow">
+                        <Ciclos />
+                    </div>
+
+                    <div className="formRow">
+                        <BotaoDefault icon={<PlayCircle />} />
+                    </div>
+                </form>
+            </Container>
+
+            <Container>
+                <Footer />
+            </Container>
+        </>
+    );
 }
-
-export default App
